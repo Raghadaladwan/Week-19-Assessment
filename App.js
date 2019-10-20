@@ -37,7 +37,7 @@ export default class App extends Component {
 
   // ONE
   addTodoItem = newTask => {
-    axios.post('localhost:9000/addNewTask'),{newTask}
+    axios.post('http://localhost:9000/addNewTask'),{newTask}
          .then(res => {
            const result = res.data;
           this.setState({tasks:res})
