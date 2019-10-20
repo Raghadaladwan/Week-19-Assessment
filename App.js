@@ -21,19 +21,32 @@ export default class App extends Component {
         console.log(error);
       });
   }
-
+//------------------------------------------------------add
   // Q2: we have 6 errors here please fix them [6 pt]
+  // addTodoItem = newTask => {
+  //   axios
+  //     .get('getTasks')
+  //     .then(res => {
+  //       const result = res;
+  //       this.state.tasks = result;
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  // };
+
+  // ONE
   addTodoItem = newTask => {
-    axios
-      .get('getTasks')
-      .then(res => {
-        const result = res;
-        this.state.tasks = result;
-      })
+    axios.post('localhost:9000/addNewTask'),{newTask}
+         .then(res => {
+           const result = res.data;
+          this.setState({tasks:res})
+         })
       .catch(error => {
         console.log(error);
       });
   };
+
 
   toggleComplete = id => {
     axios

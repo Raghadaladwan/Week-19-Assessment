@@ -7,9 +7,14 @@ var result="My name is: " + name + "and my age is: " + age
 */
 // 1) WRITE YOUR CODE UNDER THIS LINE
 
-
-
-
+Q = (name , age , result)=>{
+  let name , age , result;
+   name = "Alex";
+   age = 25;
+  
+   result = "My name is: " + name + "and my age is: " + age;
+   return result;
+}
 
 
 /* 
@@ -25,3 +30,15 @@ var object={
 }
  */
 // 2) WRITE YOUR CODE UNDER THIS LINE
+
+Q =(food , color)=>{
+
+  Object:{
+    food,
+    color,
+    function multi(a,b){
+      return a * b
+    }
+  }
+
+}

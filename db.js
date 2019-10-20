@@ -40,6 +40,12 @@ let addTask = (task, cb) => {
   });
 };
 
+
+
+
+
+
+
 let updateTask = (id, cb) => {
   Tasks.find({ _id: id }, (err, task) => {
     if (err) {
@@ -62,16 +68,39 @@ let updateTask = (id, cb) => {
   });
 };
 
+
+
+
+
+
+
+
+
+
+
+
 // Q4:we have 6 errors here please fix them [6 pt]
-let deleteTask = (id, cb) => {
-  tasks.deleteOne({ ID: cb }, (err, result) => {
-    if (result) {
+// let deleteTask = (id, cb) => {
+//   tasks.deleteOne({ ID: cb }, (err, result) => {
+//     if (result) {
+//       console.log(err);
+//     } else {
+//       getTasks();
+//     }
+//   });
+// };
+
+let deleteOneTask = (id, cb) => {
+  Tasks.deleteOne({ _id:id}, (err, result) => {
+    if (err) {
       console.log(err);
     } else {
-      getTasks();
+      getTasks(cb);
     }
   });
 };
+
+
 
 module.exports = {
   getTasks: getTasks,

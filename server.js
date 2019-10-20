@@ -10,26 +10,38 @@ app.get('/', (req, res) => {
   res.json('server is working');
 });
 
-app.get('/getAllTasks', (req, res) => {
+app.get('/tasks', (req, res) => {
   mongo.getTasks(result => {
     res.json(result);
   });
 });
 
-app.post('/tasks', (req, res) => {
+
+//-----------------------------------------add
+app.post('/addNewTask', (req, res) => {
   let newTask = req.body;
   mongo.addTask(newTask, result => {
     res.json(result);
   });
 });
 
+
 // Q3: we have 6 errors here please fix them [6 pt]
-app.get('/tasks', (req, res) => {
-  let id = req.params;
-  mongo.updateTask(ID, result => {
-    res(ID);
-  });
+// app.get('/tasks', (req, res) => {
+//   let id = req.params;
+//   mongo.updateTask(ID, result => {
+//     res(ID);
+//   });
+// });
+
+app.put('/toggleTask/:id', (req, res) => {
+  let id = req.params.id;
+  mongo.updateTask(result => {
+
+    res.json(result);
+  },id);
 });
+
 
 app.delete('/tasks/:id', (req, res) => {
   let id = req.params.id;
